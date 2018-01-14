@@ -19,12 +19,16 @@ Or even better, you could just git clone it straight from github.
 Usage
 ----
 
-First you need to install all the dependencies, you can do this by using npm.
+First navigate to your installation directory.
 
-    npm install
+    cd nofap-counter
+    
+You then need to install all the dependencies, you can do this by using npm.
 
-After you have all the dependencies installed you need to set the `dayzero` variable on line 13 to the correct date. The format is `YYYYMMDD`. e.g `20151118`. After the configuration you're ready to start `server.js`.
+    sudo npm install
 
-    node server.js
+After you have all the dependencies installed you need to set the `dayzero` variable on line 13 to the correct date. The format is `YYYYMMDD`, e.g `20151118`. After the configuration you're ready to start `server.js`.
+
+    sudo node server.js
 
 The server should now be running at `http://localhost:80`
