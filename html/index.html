@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Traditional//EN" "http://w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang="en">
   <head>
-    <title>Totem - Worldwide Datamining</title>
+    <title>NofapCounter - Keep track of your nofap count</title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -18,10 +18,12 @@
   <body>
     <header><h1 class="intro absolute-center">Nofap marathon started</h1></header>
     <header><h1 class="counter absolute-center"><br></h1></header>
+    <header><h1 class="stage absolute-center"><br></br><br></br><br></br><br></h1></header>
   </body>
   <script src="js/socket.io.js"></script>
   <script>
     var socket = io();
-    socket.on('testerEvent', function(data){$('.counter').append(data.description).append(".")});
+    socket.on('days', function(data){$('.counter').append(data.description).append(".")});
+    socket.on('stage', function(data){$('.stage').append(data.description).append(".")});
   </script>
 </html>

@@ -17,31 +17,35 @@ var current = moment().format("YYYYMMDD");
 // 20180112
 
 function stage() {
-    if (dayzero.diff(current, 'days') === 0) {
+    if (dayzero.diff(current, 'days') >= -1) {
         return "Relapse (0-1 days)";
-    } else if (dayzero.diff(current, 'days') <= 15 && (dayzero.diff(current, 'days')) >= 1) {
+    } else if (dayzero.diff(current, 'days') <= -1 && (dayzero.diff(current, 'days')) >= -15) {
         return "Dilettantism (appr. 1-15 days)";
-    } else if (dayzero.diff(current, 'days') <= 25 && (dayzero.diff(current, 'days')) >= 15) {
+    } else if (dayzero.diff(current, 'days') <= -15 && (dayzero.diff(current, 'days')) >= -25) {
         return "The Void (appr. 15-25 days)";
-    } else if (dayzero.diff(current, 'days') <= 60 && (dayzero.diff(current, 'days')) >= 25) {
+    } else if (dayzero.diff(current, 'days') <= -25 && (dayzero.diff(current, 'days')) >= -60) {
         return "Pubery (appr. 25-60 days)";
-    } else if (dayzero.diff(current, 'days') <= 90 && (dayzero.diff(current, 'days')) >= 60) {
+    } else if (dayzero.diff(current, 'days') <= -60 && (dayzero.diff(current, 'days')) >= -90) {
         return "Welcome To The Machine (appr. 60-90 days)";
-    } else if (dayzero.diff(current, 'days') <= 365 && (dayzero.diff(current, 'days')) >= 90) {
+    } else if (dayzero.diff(current, 'days') <= -90 && (dayzero.diff(current, 'days')) >= -365) {
         return "The Great Salt Desert (appr. 90-365 days)";
+    } else {
+      return "Transcended (appr. 365+ days)";
     }
 };
 
-var arr = [];
-linereader.eachLine('quotes.txt', function(line, last) {
-    arr.push(line);
-    if (last) {
-        console.log("\n" + arr[Math.floor(Math.random() * arr.length)].red);
-    }
-});
+function quote() {
+  var arr = [];
+  linereader.eachLine('quotes.txt', function(line, last) {
+      arr.push(line);
+      if (last) {
+          return ("\n" + arr[Math.floor(Math.random() * arr.length)].red);
+      }
+  });
+};
 
 console.log("You started nofap " + dayzero.fromNow().underline.green + ". Keep it up!")
-console.log("You are currently on stage: " + stage());
+console.log("You are currently on stage: " + quote());
 
 router.use(function (req,res,next) {
   console.log("/" + req.method);
@@ -49,8 +53,8 @@ router.use(function (req,res,next) {
 });
 
 io.on('connection', function(socket){
-  console.log('a user connected');
-  socket.emit('testerEvent', { description: dayzero.fromNow()});
+  socket.emit('days', { description: dayzero.fromNow()});
+  socket.emit('stage', { description: stage()});
 });
 
 router.get("/",function(req,res){
