@@ -100,6 +100,13 @@ console.log(achivement());
 //   next();
 // });
 
+moment.fn.fromNowOrNow = function (a) {
+    if (Math.abs(moment().diff(this)) < 1000) { // 1000 milliseconds
+        return 'Just now';
+    }
+    return this.fromNow(a);
+}
+
 io.on('connection', function(socket){
   socket.emit('days', { description: dayzero.fromNow()});
   socket.emit('stage', { description: stage()});
