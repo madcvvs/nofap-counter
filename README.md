@@ -5,7 +5,7 @@ nofap-counter is a simple nodejs project that keeps track of your nofap count an
 Screenshots
 ----
 
-![Screenshot](https://i.imgur.com/l6Sqviw.png)
+![Screenshot](https://image.prntscr.com/image/Bk5oP7-zRWSrt6KZFZXLcg.png)
 
 Installation
 ----
