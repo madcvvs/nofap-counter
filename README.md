@@ -22,7 +22,7 @@ Usage
 First navigate to your installation directory.
 
     cd nofap-counter
-    
+
 You then need to install all the dependencies, you can do this by using npm.
 
     sudo npm install
@@ -32,3 +32,9 @@ After you have all the dependencies installed you need to set the `dayzero` vari
     sudo node server.js
 
 The server should now be running at `http://localhost:80`
+
+Support
+----
+
+If you have any suggestions, need any help or found a bug you can email me at
+> maxxarmino@protonmail.com
