@@ -4,6 +4,7 @@ const path = __dirname + '/html/';
 const app = express();
 const router = express.Router();
 
+var requestify = require('requestify');
 var moment = require('moment');
 var linereader = require('line-reader');
 var colors = require('colors');
@@ -34,27 +35,75 @@ function stage() {
     }
 };
 
-function quote() {
-  var arr = [];
-  linereader.eachLine('quotes.txt', function(line, last) {
-      arr.push(line);
-      if (last) {
-          return ("\n" + arr[Math.floor(Math.random() * arr.length)].red);
-      }
-  });
-};
+function achivement() {
+    achivements = [];
+
+    if (dayzero.diff(current, 'days') <= 0) {
+        achivements.push("🤔");
+    } else {
+        achivements.push("<div class=\"locked\">🤔</div>");
+    }
+    if (dayzero.diff(current, 'days') <= -7) {
+        achivements.push("😋");
+    } else {
+        achivements.push("<div class=\"locked\">😋</div>");
+    }
+    if (dayzero.diff(current, 'days') <= -10) {
+        achivements.push("🔥");
+    } else {
+        achivements.push("<div class=\"locked\">🔥</div>");
+    }
+    if (dayzero.diff(current, 'days') <= -30) {
+        achivements.push("💪");
+    } else {
+        achivements.push("<div class=\"locked\">💪</div>");
+    }
+    if (dayzero.diff(current, 'days') <= -91) {
+        achivements.push("🙏");
+    } else {
+        achivements.push("<div class=\"locked\">🙏")
+    }
+    if (dayzero.diff(current, 'days') <= -100) {
+        achivements.push("💯");
+    } else {
+        achivements.push("<div class=\"locked\">💯</div>");
+    }
+    if (dayzero.diff(current, 'days') <= -182) {
+        achivements.push("🙌");
+    } else {
+        achivements.push("<div class=\"locked\">🙌")
+    }
+    if (dayzero.diff(current, 'days') <= -365) {
+        achivements.push("💥");
+    } else {
+        achivements.push("<div class=\"locked\">💥")
+    }
+    return achivements;
+}
 
 console.log("You started nofap " + dayzero.fromNow().underline.green + ". Keep it up!")
-console.log("You are currently on stage: " + quote());
+console.log("You are currently on stage: " + stage().red);
+console.log(achivement());
+// requestify.post("https://api.pushover.net/1/messages.json", {
+//     token: 'acg33kh8uxm7tzcbpxhsg1mtkt7i3x',
+//     user: 'uf66n8c3uspr7p39kcs415c6ei8ium',
+//     message: 'You\'ve been on nofap for ' + (dayzero.diff(current, 'days')-1)*-1 + ' days. Keep it up!',
+//     title: 'New nofap record'
+// }).then(function(response) {
+//     response.getBody();
+//     response.body();
+//     console.log("Sent");
+// });
 
-router.use(function (req,res,next) {
-  console.log("/" + req.method);
-  next();
-});
+// router.use(function (req,res,next) {
+//   console.log("/" + req.method);
+//   next();
+// });
 
 io.on('connection', function(socket){
   socket.emit('days', { description: dayzero.fromNow()});
   socket.emit('stage', { description: stage()});
+  socket.emit('achivement', { description: achivement()});
 });
 
 router.get("/",function(req,res){

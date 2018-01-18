@@ -5,25 +5,26 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="NofapCounter - Keep track of your nofap count">
+    <meta name="description" content="NofapCounter - Keep Track Of Your Nofap Count">
 
     <link rel="shortcut icon" type="image/png" href="img/sia-favicon-min.png">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300i,400" rel="stylesheet">
-
-    <script src="js/jquery-3.1.1.min.js"></script>
-    <script src="js/popper.min.js" crossorigin="anonymous"></script>
-    <script src="js/bootstrap.min.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="/css/nofap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/nofap.min.css" crossorigin="anonymous">
   </head>
   <body>
     <header><h1 class="intro absolute-center">Nofap marathon started</h1></header>
     <header><h1 class="counter absolute-center"><br></h1></header>
     <header><h1 class="stage absolute-center"><br></br><br></br><br></br><br></h1></header>
+    <header><h1 class="achivement absolute-center"><br></br><br></br><br></br><br></br><br></br></header>
   </body>
   <script src="js/socket.io.js"></script>
   <script>
     var socket = io();
     socket.on('days', function(data){$('.counter').append(data.description).append(".")});
     socket.on('stage', function(data){$('.stage').append(data.description).append(".")});
+    socket.on('achivement', function(data){$('.achivement').append(data.description)});
   </script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
 </html>

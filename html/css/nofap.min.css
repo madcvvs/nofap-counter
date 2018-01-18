@@ -1,26 +1,31 @@
 body {
   background: linear-gradient(270deg, #f1c40f, #c0392b);
   background-size: 400% 400%;
+}
 
-  -webkit-animation: nofap 30s ease infinite;
-  -moz-animation: nofap 30s ease infinite;
-  animation: nofap 30s ease infinite;
+-webkit-animation: nofap 30s ease infinite;
+-moz-animation: nofap 30s ease infinite;
+animation: nofap 30s ease infinite;
 
-  @-webkit-keyframes nofap {
-      0%{background-position:0% 50%}
-      50%{background-position:100% 50%}
-      100%{background-position:0% 50%}
-  }
-  @-moz-keyframes nofap {
-      0%{background-position:0% 50%}
-      50%{background-position:100% 50%}
-      100%{background-position:0% 50%}
-  }
-  @keyframes nofap {
-      0%{background-position:0% 50%}
-      50%{background-position:100% 50%}
-      100%{background-position:0% 50%}
-  }
+@-webkit-keyframes nofap {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes nofap {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes nofap {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+.locked {
+    display:inline;
+    opacity: 0.20;
 }
 
 .absolute-center {
@@ -75,4 +80,14 @@ header .stage {
   line-height: 0.8;
   letter-spacing: 0px;
   font-weight: 300;
+}
+
+header .achivement {
+    font-family: 'Open Sans', sans-serif;
+    width: 100%;
+    font-size: 25px;
+    text-transform: uppercase;
+    line-height: 0.8;
+    letter-spacing: 0px;
+    font-weight: 300;
 }
