@@ -43,37 +43,37 @@ function achivement() {
     } else {
         achivements.push("<div class=\"locked\">🤔</div>");
     }
-    if (dayzero.diff(current, 'days') <= -7) {
+    if ((dayzero.diff(current, 'days')-1) <= -7) {
         achivements.push("😋");
     } else {
-        achivements.push("<div class=\"locked\">😋</div>");
+        achivements.push("<div class=\"locked\">😋</div> " + dayzero.diff(current, 'days'));
     }
-    if (dayzero.diff(current, 'days') <= -10) {
+    if ((dayzero.diff(current, 'days')-1) <= -10) {
         achivements.push("🔥");
     } else {
         achivements.push("<div class=\"locked\">🔥</div>");
     }
-    if (dayzero.diff(current, 'days') <= -30) {
+    if ((dayzero.diff(current, 'days')-1) <= -30) {
         achivements.push("💪");
     } else {
         achivements.push("<div class=\"locked\">💪</div>");
     }
-    if (dayzero.diff(current, 'days') <= -91) {
+    if ((dayzero.diff(current, 'days')-1) <= -91) {
         achivements.push("🙏");
     } else {
         achivements.push("<div class=\"locked\">🙏")
     }
-    if (dayzero.diff(current, 'days') <= -100) {
+    if ((dayzero.diff(current, 'days')-1) <= -100) {
         achivements.push("💯");
     } else {
         achivements.push("<div class=\"locked\">💯</div>");
     }
-    if (dayzero.diff(current, 'days') <= -182) {
+    if ((dayzero.diff(current, 'days')-1) <= -182) {
         achivements.push("🙌");
     } else {
         achivements.push("<div class=\"locked\">🙌")
     }
-    if (dayzero.diff(current, 'days') <= -365) {
+    if ((dayzero.diff(current, 'days')-1) <= -365) {
         achivements.push("💥");
     } else {
         achivements.push("<div class=\"locked\">💥")
