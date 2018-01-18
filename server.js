@@ -46,7 +46,7 @@ function achivement() {
     if ((dayzero.diff(current, 'days')-1) <= -7) {
         achivements.push("😋");
     } else {
-        achivements.push("<div class=\"locked\">😋</div> " + dayzero.diff(current, 'days'));
+        achivements.push("<div class=\"locked\">😋</div> ");
     }
     if ((dayzero.diff(current, 'days')-1) <= -10) {
         achivements.push("🔥");
