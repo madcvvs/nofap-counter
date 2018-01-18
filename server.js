@@ -37,7 +37,6 @@ function stage() {
 
 function achivement() {
     achivements = [];
-
     if (dayzero.diff(current, 'days') <= 0) {
         achivements.push("🤔");
     } else {
@@ -84,27 +83,12 @@ function achivement() {
 console.log("You started nofap " + dayzero.fromNow().underline.green + ". Keep it up!")
 console.log("You are currently on stage: " + stage().red);
 console.log(achivement());
-// requestify.post("https://api.pushover.net/1/messages.json", {
-//     token: 'acg33kh8uxm7tzcbpxhsg1mtkt7i3x',
-//     user: 'uf66n8c3uspr7p39kcs415c6ei8ium',
-//     message: 'You\'ve been on nofap for ' + (dayzero.diff(current, 'days')-1)*-1 + ' days. Keep it up!',
-//     title: 'New nofap record'
-// }).then(function(response) {
-//     response.getBody();
-//     response.body();
-//     console.log("Sent");
-// });
-
-// router.use(function (req,res,next) {
-//   console.log("/" + req.method);
-//   next();
-// });
 
 moment.fn.fromNowOrNow = function (a) {
-    if (Math.abs(moment().diff(this)) < 1000) { // 1000 milliseconds
+    if (Math.abs(moment().diff(this)) < 60000) { // 1 minute
         return 'Just now';
     }
-    return this.fromNow(a);
+    return this.a(a);
 }
 
 io.on('connection', function(socket){

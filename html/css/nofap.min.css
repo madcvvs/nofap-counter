@@ -3,26 +3,6 @@ body {
   background-size: 400% 400%;
 }
 
--webkit-animation: nofap 30s ease infinite;
--moz-animation: nofap 30s ease infinite;
-animation: nofap 30s ease infinite;
-
-@-webkit-keyframes nofap {
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
-}
-@-moz-keyframes nofap {
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
-}
-@keyframes nofap {
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
-}
-
 .locked {
     display:inline;
     opacity: 0.15;
