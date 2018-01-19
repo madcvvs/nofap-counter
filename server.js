@@ -14,8 +14,8 @@ var io = require('socket.io').listen(server);
 var dayzero = moment("201801191510", "YYYYMMDDHHmm");
 var current = moment().format("YYYYMMDD");
 
-// 01-12-2018 12:35:40
-// 20180112
+// 01-19-2018 15:10:00
+// 201801191510
 
 function stage() {
     if (dayzero.diff(current, 'days') >= -1) {
