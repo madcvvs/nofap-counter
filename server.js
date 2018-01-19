@@ -11,7 +11,7 @@ var colors = require('colors');
 var server = app.listen(80)
 var io = require('socket.io').listen(server);
 
-var dayzero = moment("20180112", "YYYYMMDD");
+var dayzero = moment("201801191510", "YYYYMMDDHHmm");
 var current = moment().format("YYYYMMDD");
 
 // 01-12-2018 12:35:40

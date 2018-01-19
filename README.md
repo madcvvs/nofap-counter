@@ -27,7 +27,7 @@ You then need to install all the dependencies, you can do this by using npm.
 
     sudo npm install
 
-After you have all the dependencies installed you need to set the `dayzero` variable on line 13 to the correct date. The format is `YYYYMMDD`, e.g `20151118`. After the configuration you're ready to start `server.js`.
+After you have all the dependencies installed you need to set the `dayzero` variable on line 13 to the correct date. The format is `YYYYMMDDHHmm`, e.g `201801191510`. After the configuration you're ready to start `server.js`.
 
     sudo node server.js
 
